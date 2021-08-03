@@ -1,0 +1,5 @@
+// THIS IS HOW YOU MAKE ACCECSSIBLE GLOBAL VARS
+#pragma once
+
+
+extern int SOMEVAR;
