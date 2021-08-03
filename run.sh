@@ -6,7 +6,7 @@ cd bin
 rm *.o, main.exe
 
 # read prj
-prj="linear"
+prj="src"
 
 echo "Building the enviroment..."
 echo

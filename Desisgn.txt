@@ -1,0 +1,23 @@
+
+    Requirements:
+
+        App should be able to create different object
+        Object should be
+
+
+        vreau un fel de angry birds model:
+        am un obiect, vreau sa trag inapoi ca sa ii dau o forta in linie dreapta 
+        poate vreau sa aplic gravitatie 
+        poate vreau sa aplic forta cenrifuga 
+
+        Collision o sa vina mai tarziu
+        poate o sa fie mai mult ca un pinball unde ai cateva obstacole pe ecran
+
+    Keep it simple:
+
+        vreau un fel de windows save screen in care se misca o bila
+        cand dau click vreau ca bila sa isi schimbe traiectoria din linie dreapta in orbita in jurul mouseului
+        cand dau drumul la click se schimba la loc in linie dreapta 
+        ca sa pornesc bila dau click pe ecran si trag intr-o directie; bila va merge in directia opusa cu o viteza scalara distantei
+            alternativ porneste intr-o directie random
+        bila nu iese din aria ecranului niciodata
