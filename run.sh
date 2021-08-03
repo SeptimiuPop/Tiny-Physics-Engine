@@ -3,7 +3,8 @@
 clear
 cd bin
 
-rm *.o, main.exe
+rm *.o
+rm main.exe
 
 # read prj
 prj="src"
