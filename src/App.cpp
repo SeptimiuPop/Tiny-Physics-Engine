@@ -1,23 +1,25 @@
-#include "app.h"
+#include "App.h"
 
-    app::app(){
+    App::App(){
         window.create(sf::VideoMode(750, 500), "Linear Physics", sf::Style::Default);
-        objects = world.GetObjects();
+        objects = testBed.GetObjects();
+        world.AddObject();
     }
 
-    void app::Run(){
+    void App::Run(){
         while(window.isOpen()){
             Update();
             Draw();
         }
     }
 
-    void app::Update(){
-        world.Update(&window);
+    void App::Update(){
+        testBed.Update(&window);
+        world.Step(0.005);
         HandleInputs();
     }
 
-    void app::Draw(){
+    void App::Draw(){
         window.clear();
         for (auto obj : objects)
             window.draw(*obj);
@@ -27,7 +29,7 @@
 
 
 
-    void app::HandleInputs(){
+    void App::HandleInputs(){
         sf::Event event;
 
         while (window.pollEvent(event)){
@@ -44,9 +46,9 @@
                 if (event.key.code == sf::Keyboard::Escape)
                     window.close();
                 if (event.key.code == sf::Keyboard::A)
-                    world.ChangeRadious(-1);
+                    testBed.ChangeRadious(-1);
                 if (event.key.code == sf::Keyboard::D)
-                    world.ChangeRadious( 1);
+                    testBed.ChangeRadious( 1);
                 if (event.key.code == sf::Keyboard::C)
                     window.clear();
                 

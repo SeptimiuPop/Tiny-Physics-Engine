@@ -1,7 +1,7 @@
 #pragma once 
-#include "includes.h"
+#include "Includes.h"
 
-class PhysicsWorld1{
+class PhysicsTestBed{
     
         sf::CircleShape targetObject;
         sf::CircleShape centerPoint;
@@ -17,7 +17,7 @@ class PhysicsWorld1{
         
     public:
 
-    PhysicsWorld1();
+    PhysicsTestBed();
     void Update(sf::RenderWindow*);
     std::vector<sf::CircleShape*> GetObjects(); 
     void ChangeRadious(int);

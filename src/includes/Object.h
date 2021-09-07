@@ -1,11 +1,13 @@
 #pragma once 
-#include "includes.h"
+#include <SFML/System.hpp>
 
-class object{
+
+class Object{
     public:
-        float x,y;
+        float mass;
         sf::Vector2f force;
         sf::Vector2f velocity;
+        sf::Vector2f position;
 
     private:
 

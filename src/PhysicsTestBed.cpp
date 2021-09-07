@@ -1,7 +1,7 @@
-#include "physicsWorld1.h"
+#include "PhysicsTestBed.h"
 #include <math.h>
 
-    PhysicsWorld1::PhysicsWorld1(){
+    PhysicsTestBed::PhysicsTestBed(){
         center = sf::Vector2f(250,150);
         
         targetObject.setFillColor(sf::Color::Red);
@@ -18,7 +18,7 @@
 
     }
     
-    void PhysicsWorld1::Update(sf::RenderWindow* window){
+    void PhysicsTestBed::Update(sf::RenderWindow* window){
         center = centerPoint.getPosition();
         mouse = sf::Mouse::getPosition(*window);
 
@@ -26,18 +26,18 @@
         Move();
     }
 
-    std::vector<sf::CircleShape*> PhysicsWorld1::GetObjects(){
+    std::vector<sf::CircleShape*> PhysicsTestBed::GetObjects(){
         std::vector<sf::CircleShape*> objects;
         objects.push_back(&targetObject);
         objects.push_back(&centerPoint);
         return objects;
     }
 
-    void PhysicsWorld1::ChangeRadious(int number){
+    void PhysicsTestBed::ChangeRadious(int number){
         radious += number;    
     }
     
-    void PhysicsWorld1::Rotate(){
+    void PhysicsTestBed::Rotate(){
         angleTheta += 0.1/radious;
         if (angleTheta >= 360)
             angleTheta = 0;
@@ -47,7 +47,7 @@
         targetObject.setPosition(x+center.x,y+center.y);        
     }
 
-    void PhysicsWorld1::Move(){
+    void PhysicsTestBed::Move(){
 
         if(abs(mouse.x-center.x) > 0.3 &&
            abs(mouse.y-center.y) > 0.3 ){
@@ -72,7 +72,7 @@
         }        
     }
 
-    void PhysicsWorld1::Line(sf::RenderWindow* window){
+    void PhysicsTestBed::Line(sf::RenderWindow* window){
         mouse = sf::Mouse::getPosition(*window);
 
         float distX, distY;

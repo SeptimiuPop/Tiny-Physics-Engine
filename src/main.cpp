@@ -1,10 +1,19 @@
-#include "app.h"
+#include "App.h"
+#include "Vector2.h"
 
 int main(){
     
-    app application;
+    Vector2 a(3,3);
+    Vector2 b(2,2);
 
-    application.Run();
+    a = b + a*3;
+    std::cout<<a<<b;
+
+
+
+    // App application;
+    // application.Run();
+
 
     return 0;
 

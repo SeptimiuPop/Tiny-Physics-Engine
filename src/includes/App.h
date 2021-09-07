@@ -1,11 +1,13 @@
 #pragma once
-#include "includes.h"
-#include "physicsWorld1.h"
 
-class app{
+#include "Includes.h"
+#include "PhysicsWorld.h"
+#include "PhysicsTestBed.h"
+
+class App{
     public:
 
-        app();
+        App();
         void Run();
         void Update();
         void Draw();
@@ -14,7 +16,8 @@ class app{
     
     private:
 
-        PhysicsWorld1 world;
+        PhysicsTestBed testBed;
+        PhysicsWorld world;
 
         std::vector<sf::CircleShape*> objects;
         sf::RenderWindow window;
