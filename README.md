@@ -1,1 +1,1 @@
-This project is aimed at exploring the movement of different objects under certain circumstances with the use of SFML.
+Exploring how different forces can affect an object. This project focuses on physics simulations interpreting ecuations into code 
