@@ -21,4 +21,7 @@ class App{
 
         std::vector<sf::CircleShape*> objects;
         sf::RenderWindow window;
+
+        float delta_time;
+        sf::Clock clock;
 };

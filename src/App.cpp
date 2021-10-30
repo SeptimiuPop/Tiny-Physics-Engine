@@ -2,12 +2,15 @@
 
     App::App(){
         window.create(sf::VideoMode(750, 500), "Linear Physics", sf::Style::Default);
-        objects = testBed.GetObjects();
+        objects = world.GetObjects();
         world.AddObject();
     }
 
     void App::Run(){
         while(window.isOpen()){
+            delta_time = clock.getElapsedTime().asSeconds();
+            clock.restart();
+
             Update();
             Draw();
         }
@@ -15,7 +18,7 @@
 
     void App::Update(){
         testBed.Update(&window);
-        world.Step(0.005);
+        world.Step(delta_time);
         HandleInputs();
     }
 
