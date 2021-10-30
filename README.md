@@ -1,1 +1,1 @@
-Exploring how different forces can affect an object. This project focuses on physics simulations interpreting ecuations into code 
+Exploring how different forces can affect an object. This project focuses on physics simulations / interpreting ecuations into code 
