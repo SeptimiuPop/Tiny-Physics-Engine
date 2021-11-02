@@ -4,22 +4,31 @@
 #include <vector>
 
 class PhysicsWorld{
-private:
 
-    std::vector<Object> objects;
-    sf::Vector2f gravity;
+    // -------------------------------------------- Functions --------------------------------------------
+
+    public:
+
+        PhysicsWorld();
+        void Step(float);
+
+        void AddObject();
+        void AddObject(float,sf::Vector2f,sf::Vector2f,sf::Vector2f);
+        void RemoveObject();
+        
+        std::vector<sf::CircleShape>* GetObjects(); 
+
+    private:
     
-    sf::FloatRect border;
-    sf::CircleShape particle;
-    sf::CircleShape particle1;
+        void HandleCollision(Object&);
 
-public:
+    // -------------------------------------------- Fields --------------------------------------------
 
-    PhysicsWorld();
-    void Step(float);
-    void AddObject();
-    void RemoveObject();
-    void HandleCollision(Object&);
+    private:
 
-    std::vector<sf::CircleShape*> GetObjects(); 
+        std::vector<sf::CircleShape> shapes;
+        std::vector<Object> objects;
+
+        sf::Vector2f gravity;
+        sf::FloatRect border;
 };

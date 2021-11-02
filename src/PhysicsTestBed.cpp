@@ -1,6 +1,10 @@
 #include "PhysicsTestBed.h"
 #include <math.h>
 
+    // -------------------------------------------- Constructor/Destructor --------------------------------------------
+
+
+
     PhysicsTestBed::PhysicsTestBed(){
         center = sf::Vector2f(250,150);
         
@@ -15,8 +19,13 @@
         line.setSize(sf::Vector2f(50,5));
         line.setPosition(center);
 
-
     }
+
+
+
+    // -------------------------------------------- Public Functions --------------------------------------------
+
+
     
     void PhysicsTestBed::Update(sf::RenderWindow* window){
         center = centerPoint.getPosition();
@@ -46,6 +55,12 @@
         float y = cos(angleTheta) * radious;
         targetObject.setPosition(x+center.x,y+center.y);        
     }
+
+
+
+    // -------------------------------------------- Private Functions --------------------------------------------
+
+
 
     void PhysicsTestBed::Move(){
 

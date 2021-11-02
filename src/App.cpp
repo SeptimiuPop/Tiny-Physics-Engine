@@ -1,10 +1,21 @@
 #include "App.h"
 
+    // -------------------------------------------- Constructor/Destructor --------------------------------------------
+
+
+
     App::App(){
         window.create(sf::VideoMode(750, 500), "Linear Physics", sf::Style::Default);
         objects = world.GetObjects();
         world.AddObject();
+        world.AddObject(1, sf::Vector2f(10, -300), sf::Vector2f(0,0), sf::Vector2f(400,400));
     }
+
+
+
+    // -------------------------------------------- Public Functions --------------------------------------------
+
+
 
     void App::Run(){
         while(window.isOpen()){
@@ -16,6 +27,12 @@
         }
     }
 
+
+
+    // -------------------------------------------- Private Functions --------------------------------------------
+
+
+
     void App::Update(){
         testBed.Update(&window);
         world.Step(delta_time);
@@ -24,12 +41,10 @@
 
     void App::Draw(){
         window.clear();
-        for (auto obj : objects)
-            window.draw(*obj);
+        for (auto obj : *objects)
+            window.draw(obj);
         window.display();
     }
-
-
 
 
     void App::HandleInputs(){

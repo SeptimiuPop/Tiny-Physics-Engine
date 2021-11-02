@@ -1,15 +1,18 @@
 #include "PhysicsWorld.h"
 
+   // -------------------------------------------- Constructor/Destructor --------------------------------------------
+
+
+
     PhysicsWorld::PhysicsWorld(){
         gravity = sf::Vector2f(0,-9.81);
-        particle.setFillColor(sf::Color::Red);
-        particle.setRadius(5.f);
-
-        particle1.setFillColor(sf::Color::Red);
-        particle1.setRadius(5.f);
-
         border = sf::FloatRect(sf::Vector2f(25,25), sf::Vector2f(700,450));
     }
+
+
+
+    // -------------------------------------------- Public Functions --------------------------------------------
+
 
 
     /*
@@ -26,11 +29,58 @@
             HandleCollision(obj);
 
         }
-        // BAD SOLUTION PLEASE SOLVE
-        // Also the physics world is upside down so we have to swap the y (500 = screen height -- should be done by renderer)
-        particle.setPosition(sf::Vector2f(objects[0].position.x, 500 - objects[0].position.y));
-        particle1.setPosition(sf::Vector2f(objects[1].position.x, 500 - objects[1].position.y));
+        // SHOULD COME LATER IN RENDERER
+        // Addigns a position to the shape linked with the object
+        sf::Vector2f poz;
+        for (int i=0; i<objects.size(); i++){
+            poz = objects[i].position;
+            poz.y = 500 - poz.y;        // Invert y by window height 
+            shapes[i].setPosition(poz);
+        }
     }
+
+
+    void PhysicsWorld::AddObject(float mass_, sf::Vector2f acceleration_, sf::Vector2f velocity_, sf::Vector2f position_){
+        Object obj(mass_, acceleration_, velocity_, position_);
+        objects.push_back(obj);
+        
+        sf::CircleShape particle;
+        particle.setFillColor(sf::Color::Red);
+        particle.setRadius(5.f);
+        shapes.push_back(particle);
+    }
+
+
+    /*
+    *   Creates a default object and a corresponding shape to be drawn
+    */
+    void PhysicsWorld::AddObject(){   
+        Object obj;
+        objects.push_back(obj);
+        
+        sf::CircleShape particle;
+        particle.setFillColor(sf::Color::Red);
+        particle.setRadius(5.f);
+        shapes.push_back(particle);
+    }
+    
+
+    void PhysicsWorld::RemoveObject(){  }
+
+
+    /*
+    *   Sends off the objects that need to be rendered
+    *   Will evenutually be linked with a renderer
+    */
+    std::vector<sf::CircleShape>* PhysicsWorld::GetObjects(){
+        return &shapes;
+    } 
+
+
+
+    // -------------------------------------------- Private Functions --------------------------------------------
+
+
 
     /*
     *   Ensures the particle stays within the border set in the constructor
@@ -61,25 +111,4 @@
         }
     }
 
-    void PhysicsWorld::AddObject(){   
-        Object obj1;
-        Object obj2(2.5, sf::Vector2f(30,-250), sf::Vector2f(0,0), sf::Vector2f(350, 350));
-        objects.push_back(obj1);
-        objects.push_back(obj2);
-    }
-    
-    void PhysicsWorld::RemoveObject(){
 
-    }
-
-    /*
-    *   Sends off the objects that need to be rendered
-    */
-    std::vector<sf::CircleShape*> PhysicsWorld::GetObjects(){
-        
-        // AGAIN BAD SOLUTION FIND A WAY AND CREATE A RENDERER
-        std::vector<sf::CircleShape*> objects;
-        objects.push_back(&particle);
-        objects.push_back(&particle1);
-        return objects;
-    } 
